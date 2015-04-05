@@ -1,8 +1,8 @@
 Package.describe({
   name: 'fabienb4:semantic-ui-components',
-  version: '0.1.0',
+  version: '0.1.1',
   // Brief, one-line summary of the package.
-  summary: 'Template components for Semantic-UI.',
+  summary: 'Meteor template components to use with Semantic-UI.',
   // URL to the Git repository containing the source code for this package.
   git: 'https://github.com/fabienb4/meteor-semantic-ui-components.git',
   // By default, Meteor will default to using README.md for documentation.

@@ -1,6 +1,6 @@
 # fabienb4:semantic-ui-components
 
-Template components for Semantic-UI.
+Meteor template components to use with Semantic-UI.
 
 > semantic-ui package is NOT included in this package, to allow you to use a customized version if you need to. If you don't use a custom version, you must add the default package `semantic:ui-css` to your meteor app, otherwise, there will be no styling.
 
