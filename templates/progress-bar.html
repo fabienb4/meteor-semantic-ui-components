@@ -1,0 +1,16 @@
+<template name="progressBar">
+  <div class="ui {{classNames}} progress {{completeClass}}">
+    <div class="bar {{#if styleLowBar}}{{lowBar}}{{/if}}" style="-webkit-transition-duration: 300ms; transition-duration: 300ms; width: {{percent}}%;">
+      {{#if showPercent}}
+        <div class="progress">{{percent}}%</div>
+      {{else}}
+        {{#if showRatio}}
+          <div class="progress">{{current}} / {{total}}</div>
+        {{/if}}
+      {{/if}}
+    </div>
+    {{#if label}}
+      <div class="label">{{label}}</div>
+    {{/if}}
+  </div>
+</template>
