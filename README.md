@@ -30,7 +30,7 @@ $ meteor add fabienb4:semantic-ui-components
 
 ### Usage
 
-- Page templates are entire page (to be used with iron:router package for example).
+- Page templates are entire pages (to be used with iron:router package for example).
 - Components are to be included in your pages when needed.
 
 **Page templates (with iron:router package):**
