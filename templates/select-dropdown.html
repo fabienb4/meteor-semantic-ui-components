@@ -1,0 +1,11 @@
+<template name="selectDropdown">
+  <div class="field {{required}}">
+    <label>{{label}}</label>
+    <select name="{{name}}" class="ui dropdown {{search}}">
+      <option value="">{{placeholder}}</option>
+      {{#each items}}
+        <option value="{{value}}">{{label}}</option>
+      {{/each}}
+    </select>
+  </div>
+</template>
