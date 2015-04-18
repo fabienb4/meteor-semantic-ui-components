@@ -1,6 +1,6 @@
 Package.describe({
   name: 'fabienb4:semantic-ui-components',
-  version: '0.1.1',
+  version: '0.2.0',
   // Brief, one-line summary of the package.
   summary: 'Meteor template components to use with Semantic-UI.',
   // URL to the Git repository containing the source code for this package.
@@ -23,6 +23,8 @@ Package.onUse(function(api) {
     'templates/loading.html',
     'templates/progress-bar.html',
     'templates/search-input.html',
-    'templates/progress-bar.js'
+    'templates/select-dropdown.html',
+    'templates/progress-bar.js',
+    'templates/select-dropdown.js'
   ], 'client');
 });
