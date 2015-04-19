@@ -1,13 +1,25 @@
 Template.selectDropdown.helpers({
+  required: function() {
+    return this.required ? "required" : "";
+  },
+  divClasses: function() {
+    var classes = "ui fluid selection dropdown";
+
+    if (this.search || this.fullTextSearch) {
+      classes += " search";
+    }
+
+    return classes;
+  },
   placeholder: function() {
     return this.placeholder || "Select";
-  },
-  required: function() {
-    return this.isRequired ? "required" : "";
-  },
-  search: function() {
-    return this.isSearchable ? "search" : "";
   }
+});
+
+Template.selectDropdown.events({
+	"click .ui.clear.button": function(event) {
+		$(event.target).closest(".ui.dropdown").dropdown("clear");
+	}
 });
 
 Template.selectDropdown.onRendered(function() {

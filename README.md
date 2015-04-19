@@ -87,32 +87,55 @@ Router.configure({
 
 ### `selectDropdown` template:
 
-`items` and `label` attributes must be passed to the template.
+`items`, `label` and `name` attributes must be passed to the template.
 
 ```js
-{{> selectDropdown items=items label="Items"}}
-
-// With a name
+// Simple
 {{> selectDropdown items=items label="Items" name="items"}}
 
 // With a custom placeholder
-{{> selectDropdown items=items label="Items" placeholder="Select an item"}}
+{{> selectDropdown items=items label="Items" name="items" placeholder="Select an item"}}
 
 // Required select
-{{> selectDropdown items=items label="Items" isRequired=true}}
+{{> selectDropdown items=items label="Items" name="items" required=true}}
 
 // Searchable select
-{{> selectDropdown items=items label="Items" isSearchable=true}}
+{{> selectDropdown items=items label="Items" name="items" search=true}}
 
 // Searchable select with full text search
-{{> selectDropdown items=items label="Items" isSearchable=true fullTextSearch=true}}
+{{> selectDropdown items=items label="Items" name="items" fullTextSearch=true}}
 ```
 
-The `items` attribute is used to create the select's options. It must have the following format:
+The `items` attribute is used to create the select's options. It must have one of the following formats:
 ```js
-[
+// Simple
+items = [
   { value: "1", label: "Item 1" },
   { value: "2", label: "Item 2" }
+];
+
+// With icons/flags
+items = [
+  { value: "1", label: "Item 1", icon: "file text icon" },
+  { value: "2", label: "Item 2", icon: "bz flag" }
+];
+
+// Groups with headers
+items = [
+  {
+    itemGroup: "Group one",
+    items: [
+      { value: "1", label: "Item 1" },
+      { value: "2", label: "Item 2" }
+    ]
+  },
+  {
+    itemGroup: "Group two",
+    items: [
+      { value: "3", label: "Item 3" },
+      { value: "4", label: "Item 4" }
+    ]
+  }
 ]
 ```
 
