@@ -1,6 +1,6 @@
 Package.describe({
   name: 'fabienb4:semantic-ui-components',
-  version: '0.2.1',
+  version: '0.2.2',
   // Brief, one-line summary of the package.
   summary: 'Meteor template components to use with Semantic-UI.',
   // URL to the Git repository containing the source code for this package.
