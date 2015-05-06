@@ -1,6 +1,6 @@
 Package.describe({
   name: 'fabienb4:semantic-ui-components',
-  version: '0.2.3',
+  version: '0.2.4',
   // Brief, one-line summary of the package.
   summary: 'Meteor template components to use with Semantic-UI.',
   // URL to the Git repository containing the source code for this package.
@@ -13,7 +13,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.1');
 
-  api.use(['templating', 'less'], 'client');
+  api.use(['underscore', 'templating', 'less'], 'client');
 
   api.addFiles([
     'stylesheets/transitions.less',
