@@ -13,7 +13,7 @@
           {{#if itemGroup}}
             <div class="header">{{itemGroup}}</div>
             {{#each items}}
-              <div class="item" data-value="{{value}}">
+              <div class="item" {{itemAtts}} data-value="{{value}}">
                 {{#if icon}}
                   <i class="{{icon}}"></i>
                 {{/if}}
@@ -21,7 +21,7 @@
               </div>
             {{/each}}
           {{else}}
-            <div class="item" data-value="{{value}}">
+            <div class="item" {{itemAtts}} data-value="{{value}}">
               {{#if icon}}
                 <i class="{{icon}}"></i>
               {{/if}}

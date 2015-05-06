@@ -13,6 +13,9 @@ Template.selectDropdown.helpers({
   },
   placeholder: function() {
     return this.placeholder || "Select";
+  },
+  itemAtts: function() {
+    return _.omit(this, ["label", "value"]);
   }
 });
 
