@@ -11,9 +11,9 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.1.0.1');
+  api.versionsFrom('1.2.0.1');
 
-  api.use(['underscore', 'templating', 'less'], 'client');
+  api.use(['ecmascript', 'jquery', 'underscore', 'templating', 'less'], 'client');
 
   api.addFiles([
     'stylesheets/transitions.less',
@@ -21,9 +21,13 @@ Package.onUse(function(api) {
     'stylesheets/search.less',
     'templates/connection-lost.html',
     'templates/loading.html',
+    'templates/menu.html',
     'templates/progress-bar.html',
     'templates/search-input.html',
     'templates/select-dropdown.html',
+    'templates/connection-lost.js',
+    'templates/loading.js',
+    'templates/menu.js',
     'templates/progress-bar.js',
     'templates/select-dropdown.js'
   ], 'client');

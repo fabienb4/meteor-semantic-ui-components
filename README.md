@@ -25,6 +25,7 @@ $ meteor add fabienb4:semantic-ui-components
 
 - `ConnectionLost` page template
 - `Loading` page template
+- `menu` component
 - `progressBar` component
 - `searchInput` component
 - `selectDropdown` component
@@ -48,7 +49,40 @@ Router.configure({
 });
 ```
 
-### `progressBar` template:
+### `menu` component:
+```js
+{{> menu items=items classes="blue inverted"}}
+```
+
+The `items` attribute is used to create the menu's items. It must have one of the following formats:
+```js
+// Simple
+items = [
+  { href: "link-one", value: "Link One" },
+  { value: "Item Two" }
+];
+
+// With icons/flags
+items = [
+  { href: "link-one", icon: "file text icon" },
+  { value: "Item Two", icon: "my flag" },
+];
+
+// Sub-menu (dropdown)
+items = [
+  { href: "link-one", value: "Link One" },
+  { value: "Item Two", icon: "file text icon" },
+  {
+    value: [
+      { href: "sub-link-one", value: "Sub Link One", icon: "file text icon" },
+      { value: "Sub Item Two" },
+    ],
+    icon: "file text icon"
+  }
+];
+```
+
+### `progressBar` component:
 > In the following example `maxValue` & `currentValue` are reactive variables from the template helpers (they can also come from the current data context).
 
 ```js
@@ -74,7 +108,7 @@ Router.configure({
 {{> progressBar label="Capacity" current=currentValue total=maxValue showRatio=true}}
 ```
 
-### `searchInput` template:
+### `searchInput` component:
 ```js
 {{> searchInput}}
 
@@ -85,7 +119,7 @@ Router.configure({
 {{> searchInput placeholder="Search..."}}
 ```
 
-### `selectDropdown` template:
+### `selectDropdown` component:
 
 `items`, `label` and `name` attributes must be passed to the template.
 
@@ -155,5 +189,7 @@ MIT
 ## Contributing
 
 Anyone is welcome to contribute. Fork, make your changes (test them!), and then submit a pull request.
+
+Bitcoin: `34o6GtZPvVXparT46Zw2kfdxex2SWRpkGS`
 
 [![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.svg)](https://gratipay.com/fabienb4/)

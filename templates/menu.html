@@ -1,0 +1,46 @@
+<template name="menu">
+  <div class="ui menu {{classes}}">
+    {{#each item in items}}
+      {{#if item.href}}
+        {{> menuLink item}}
+      {{else}}
+        <div class="{{#if isArray item.value}}ui dropdown{{/if}} {{#if item.icon}}icon{{/if}} item">
+          {{#if item.icon}}
+            <i class="{{item.icon}}"></i>
+          {{/if}}
+          {{#if isArray item.value}}
+            <div class="menu">
+              {{#each subItem in item.value}}
+                {{#if subItem.href}}
+                  {{> menuLink subItem}}
+                {{else}}
+                  {{> menuDiv subItem}}
+                {{/if}}
+              {{/each}}
+            </div>
+          {{else}}
+            {{item.value}}
+          {{/if}}
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="menuLink">
+  <a href={{href}} class="item">
+    {{#if icon}}
+      <i class="{{icon}}"></i>
+    {{/if}}
+    {{value}}
+  </a>
+</template>
+
+<template name="menuDiv">
+  <div class="item">
+    {{#if icon}}
+      <i class="{{icon}}"></i>
+    {{/if}}
+    {{value}}
+  </div>
+</template>

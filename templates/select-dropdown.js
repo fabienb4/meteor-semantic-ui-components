@@ -1,8 +1,8 @@
 Template.selectDropdown.helpers({
-  required: function() {
+  required() {
     return this.required ? "required" : "";
   },
-  divClasses: function() {
+  divClasses() {
     var classes = "ui fluid selection dropdown";
 
     if (this.search || this.fullTextSearch) {
@@ -11,17 +11,17 @@ Template.selectDropdown.helpers({
 
     return classes;
   },
-  placeholder: function() {
+  placeholder() {
     return this.placeholder || "Select";
   },
-  itemAtts: function() {
+  itemAtts() {
     return _.omit(this, ["label", "value"]);
   }
 });
 
 Template.selectDropdown.events({
-	"click .ui.clear.button": function(event) {
-		$(event.target).closest(".ui.dropdown").dropdown("clear");
+	"click .ui.clear.button"(event) {
+		$(event.target).closest(".ui.dropdown").dropdown("clear").dropdown("hide");
 	}
 });
 
