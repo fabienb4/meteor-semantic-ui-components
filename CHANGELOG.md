@@ -5,6 +5,11 @@ Meteor template components to use with Semantic-UI.
 
 ## ChangeLog
 
+### 0.4.1
+
+- `selectDropdown` items now support "label", "description" & "selection" (see README).
+- Updated README.
+
 ### 0.4.0 [BREAKING]
 
 - Updated `selectDropdown` to support new features.
