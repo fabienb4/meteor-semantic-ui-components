@@ -121,26 +121,44 @@ items = [
 
 ### `selectDropdown` component:
 
-`items`, `label` and `name` attributes must be passed to the template.
+`items` and `name` attributes MUST be passed to the template.
+
+**WARNING: Categories and search don't play well together**
 
 ```js
 // Simple
-{{> selectDropdown items=items label="Items" name="items"}}
+{{> selectDropdown name="items" items=items}}
 
 // With a custom placeholder
-{{> selectDropdown items=items label="Items" name="items" placeholder="Select an item"}}
+{{> selectDropdown name="items" items=items placeholder="Select an item"}}
 
 // Required select
-{{> selectDropdown items=items label="Items" name="items" required=true}}
+{{> selectDropdown name="items" items=items required=true}}
 
 // Searchable select
-{{> selectDropdown items=items label="Items" name="items" search=true}}
+{{> selectDropdown name="items" items=items search=true}}
 
 // Searchable select with full text search
-{{> selectDropdown items=items label="Items" name="items" fullTextSearch=true}}
+{{> selectDropdown name="items" items=items fullTextSearch=true}}
+
+// Allow additions
+{{> selectDropdown name="items" items=items allowAdditions=true}}
+
+// Allow category selection
+{{> selectDropdown name="items" items=items allowCategorySelection=true}}
+
+// Multiple selections
+{{> selectDropdown name="items" items=items multiple=true}}
+
+// Maximum selections
+{{> selectDropdown name="items" items=items maxSelections=true}}
+
+// Don't use labels
+{{> selectDropdown name="items" items=items useLabels=false}}
 ```
 
 The `items` attribute is used to create the select's options. It must have one of the following formats:
+
 ```js
 // Simple
 items = [
@@ -170,8 +188,27 @@ items = [
       { value: "4", label: "Item 4" }
     ]
   }
-]
+];
+
+// Categories
+items = [
+  {
+    category: { value: "cat-one", label: "Category one" },// value used if allowCategorySelection
+    items: [
+      { value: "1", label: "Item 1" },
+      { value: "2", label: "Item 2" }
+    ]
+  },
+  {
+    category: { label: "Category two" },
+    items: [
+      { value: "3", label: "Item 3" },
+      { value: "4", label: "Item 4" }
+    ]
+  }
+];
 ```
+
 
 ## Extra
 

@@ -2,20 +2,28 @@ Template.selectDropdown.helpers({
   required() {
     return this.required ? "required" : "";
   },
-  divClasses() {
-    var classes = "ui fluid selection dropdown";
+  dropdownClasses() {
+    var classes = "ui dropdown";
 
+    // Add search class
     if (this.search || this.fullTextSearch) {
-      classes += " search";
+      classes += " search selection";
+    }
+
+		// Add multiple class
+		if (this.multiple) {
+			classes += " multiple";
+		}
+
+    // Add custom classes
+    if (this.classNames) {
+      classes += " " + this.classNames;
     }
 
     return classes;
   },
   placeholder() {
     return this.placeholder || "Select";
-  },
-  itemAtts() {
-    return _.omit(this, ["label", "value"]);
   }
 });
 
@@ -26,5 +34,17 @@ Template.selectDropdown.events({
 });
 
 Template.selectDropdown.onRendered(function() {
-  this.$(".ui.dropdown").dropdown({ fullTextSearch: this.data.fullTextSearch || false });
+  this.$(this.firstNode).dropdown({
+    fullTextSearch:         this.data.fullTextSearch || false,
+		allowAdditions:         this.data.allowAdditions || false,
+		maxSelections:          this.data.maxSelections || false,
+    allowCategorySelection: this.data.allowCategorySelection || false,
+		useLabels:              this.data.useLabels === false ? false : true
+  });
+});
+
+Template.selectDropdownRecursive.helpers({
+  itemAtts() {
+    return _.omit(this, ["label", "value", "itemGroup", "category", "items"]);
+  }
 });
