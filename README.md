@@ -9,6 +9,11 @@ Meteor template components to use with Semantic-UI.
 - [Installation](#installation)
 - [Available components](#available-components)
 - [Usage](#usage)
+  - [Page Templates](#page-templates)
+  - [menu Component](#menu-component)
+  - [progressBar Component](#progressbar-component)
+  - [searchInput Component](#searchinput-component)
+  - [selectDropdown Component](#selectdropdown-component)
 - [Extra](#extra)
 - [License](#license)
 - [Contributing](#contributing)
@@ -35,7 +40,9 @@ $ meteor add fabienb4:semantic-ui-components
 - Page templates are entire pages (to be used with iron:router package for example).
 - Components are to be included in your pages when needed.
 
-### Page templates (with iron:router package):
+#### Page templates
+With iron:router package:
+
 ```js
 Router.configure({
   loadingTemplate: "Loading",
@@ -49,7 +56,7 @@ Router.configure({
 });
 ```
 
-### `menu` component:
+#### `menu` component:
 ```js
 {{> menu items=items classes="blue inverted"}}
 ```
@@ -62,7 +69,7 @@ items = [
   { value: "Item Two" }
 ];
 
-// With icons/flags
+// With icon/flag
 items = [
   { href: "link-one", icon: "file text icon" },
   { value: "Item Two", icon: "my flag" },
@@ -82,7 +89,7 @@ items = [
 ];
 ```
 
-### `progressBar` component:
+#### `progressBar` component:
 > In the following example `maxValue` & `currentValue` are reactive variables from the template helpers (they can also come from the current data context).
 
 ```js
@@ -108,7 +115,7 @@ items = [
 {{> progressBar label="Capacity" current=currentValue total=maxValue showRatio=true}}
 ```
 
-### `searchInput` component:
+#### `searchInput` component:
 ```js
 {{> searchInput}}
 
@@ -119,11 +126,11 @@ items = [
 {{> searchInput placeholder="Search..."}}
 ```
 
-### `selectDropdown` component:
+#### `selectDropdown` component:
 
 `items` and `name` attributes MUST be passed to the template.
 
-**WARNING: Categories and search don't play well together**
+**WARNING: Categories and selection/search don't play well together**
 
 ```js
 // Simple
@@ -132,13 +139,16 @@ items = [
 // With a custom placeholder
 {{> selectDropdown name="items" items=items placeholder="Select an item"}}
 
+// Selection (select appears like other inputs **do not play well with categories**)
+{{> selectDropdown name="items" items=items selection=true}}
+
 // Required select
 {{> selectDropdown name="items" items=items required=true}}
 
-// Searchable select
+// Searchable select (**do not play well with categories**)
 {{> selectDropdown name="items" items=items search=true}}
 
-// Searchable select with full text search
+// Searchable select with full text search (**do not play well with categories**)
 {{> selectDropdown name="items" items=items fullTextSearch=true}}
 
 // Allow additions
@@ -166,13 +176,20 @@ items = [
   { value: "2", label: "Item 2" }
 ];
 
-// With icons/flags
+// With icon/flag/label/description
+// See:
+// http://semantic-ui.com/modules/dropdown.html#icon
+// http://semantic-ui.com/modules/dropdown.html#label
+// http://semantic-ui.com/modules/dropdown.html#description
 items = [
   { value: "1", label: "Item 1", icon: "file text icon" },
-  { value: "2", label: "Item 2", icon: "bz flag" }
+  { value: "2", label: "Item 2", icon: "bz flag" },
+  { value: "3", label: "Item 3", label: "red" },
+  { value: "4", label: "Item 4", description: "new" }
 ];
 
 // Groups with headers
+// See: http://semantic-ui.com/modules/dropdown.html#header
 items = [
   {
     itemGroup: "Group one",
@@ -190,7 +207,8 @@ items = [
   }
 ];
 
-// Categories
+// Categories (**do not play well with selection/search**)
+// See: http://semantic-ui.com/modules/dropdown.html#multiple-levels
 items = [
   {
     category: { value: "cat-one", label: "Category one" },// value used if allowCategorySelection
@@ -209,12 +227,11 @@ items = [
 ];
 ```
 
-
 ## Extra
 
 Some extensions to semantic-ui default build that are useful when using Meteor.
 
-### Reversing animation:
+#### Reversing animation:
 ```html
 <i class="reversing magnet icon"></i>
 ```

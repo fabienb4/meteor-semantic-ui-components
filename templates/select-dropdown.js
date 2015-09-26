@@ -5,7 +5,12 @@ Template.selectDropdown.helpers({
   dropdownClasses() {
     var classes = "ui dropdown";
 
-    // Add search class
+		// Add selection class
+		if (this.selection) {
+			classes += " selection";
+		}
+
+    // Add search class, also add selection for proper design
     if (this.search || this.fullTextSearch) {
       classes += " search selection";
     }
@@ -44,7 +49,10 @@ Template.selectDropdown.onRendered(function() {
 });
 
 Template.selectDropdownRecursive.helpers({
-  itemAtts() {
-    return _.omit(this, ["label", "value", "itemGroup", "category", "items"]);
+  itemHtmlAtts() {
+    return _.extend(
+			{ class: "item" },
+			_.omit(this, "label", "value", "icon", "label", "description", "itemGroup", "category", "items")
+		);
   }
 });
