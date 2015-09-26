@@ -52,7 +52,7 @@ Template.selectDropdownRecursive.helpers({
   itemHtmlAtts() {
     return _.extend(
 			{ class: "item" },
-			_.omit(this, "label", "value", "icon", "label", "description", "itemGroup", "category", "items")
+			_.omit(this, "label", "value", "icon", "circularLabel", "description", "itemGroup", "category", "items")
 		);
   }
 });
