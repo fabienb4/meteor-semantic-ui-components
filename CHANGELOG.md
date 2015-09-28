@@ -5,6 +5,12 @@ Meteor template components to use with Semantic-UI.
 
 ## ChangeLog
 
+### 0.5.0 [BREAKING]
+
+- Revamped `select` settings.
+  - Removed `selection` property.
+  - Added default for `classNames` property (`"fluid selection"`, pass an empty string to clear default).
+
 ### 0.4.2
 
 - Fixed problem with labels.
