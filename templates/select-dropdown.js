@@ -2,30 +2,31 @@ Template.selectDropdown.helpers({
   required() {
     return this.required ? "required" : "";
   },
-  dropdownClasses() {
-    var classes = "ui dropdown";
+  dropdownAtts() {
+    var atts = { class: "ui dropdown" };
 
-		// Add selection class
-		if (this.selection) {
-			classes += " selection";
+		// Add custom classes or default
+		if (_.isString(this.classNames)) {
+			atts += " " + this.classNames;
+		} else {
+			atts += " fluid selection";
 		}
 
     // Add search class, also add selection for proper design
     if (this.search || this.fullTextSearch) {
-      classes += " search selection";
+      atts.class += " search";
+
+      if (! _.includes(atts.class, "selection")) {
+        atts.class += " selection";
+      }
     }
 
 		// Add multiple class
 		if (this.multiple) {
-			classes += " multiple";
+			atts.class += " multiple";
 		}
 
-    // Add custom classes
-    if (this.classNames) {
-      classes += " " + this.classNames;
-    }
-
-    return classes;
+    return atts;
   },
   placeholder() {
     return this.placeholder || "Select";

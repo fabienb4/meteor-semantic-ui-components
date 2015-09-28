@@ -139,8 +139,11 @@ items = [
 // With a custom placeholder
 {{> selectDropdown name="items" items=items placeholder="Select an item"}}
 
-// Selection (select appears like other inputs **do not play well with categories**)
-{{> selectDropdown name="items" items=items selection=true}}
+// Specify classes for the dropdown (default: "fluid selection")
+{{> selectDropdown name="items" options=items classNames="compact selection"}}
+
+// Remove default "fluid selection" from classes
+{{> selectDropdown name="items" options=items classNames=""}}
 
 // Required select
 {{> selectDropdown name="items" items=items required=true}}
