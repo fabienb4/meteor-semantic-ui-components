@@ -1,6 +1,6 @@
 # fabienb4:semantic-ui-components
 
-> **This package is no longer maintained.**
+> **This package is no longer maintained. If you have a well maintained fork, please send me an email so I can add a link to it here.**
 
 Meteor template components to use with Semantic-UI.
 
